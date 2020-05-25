@@ -9,19 +9,19 @@ namespace Spryker\Glue\SalesReturnsRestApi\Dependency\Client;
 
 use Generated\Shared\Transfer\ReturnReasonSearchRequestTransfer;
 
-class SalesReturnsRestApiToSalesReturnPageSearchClientBridge implements SalesReturnsRestApiToSalesReturnPageSearchClientInterface
+class SalesReturnsRestApiToSalesReturnSearchClientBridge implements SalesReturnsRestApiToSalesReturnSearchClientInterface
 {
     /**
-     * @var \Spryker\Client\SalesReturnPageSearch\SalesReturnPageSearchClientInterface
+     * @var \Spryker\Client\SalesReturnSearch\SalesReturnSearchClientInterface
      */
-    protected $salesReturnPageSearchClient;
+    protected $salesReturnSearchClient;
 
     /**
-     * @param \Spryker\Client\SalesReturnPageSearch\SalesReturnPageSearchClientInterface $salesReturnPageSearchClient
+     * @param \Spryker\Client\SalesReturnSearch\SalesReturnSearchClientInterface $salesReturnSearchClient
      */
-    public function __construct($salesReturnPageSearchClient)
+    public function __construct($salesReturnSearchClient)
     {
-        $this->salesReturnPageSearchClient = $salesReturnPageSearchClient;
+        $this->salesReturnSearchClient = $salesReturnSearchClient;
     }
 
     /**
@@ -31,6 +31,6 @@ class SalesReturnsRestApiToSalesReturnPageSearchClientBridge implements SalesRet
      */
     public function searchReturnReasons(ReturnReasonSearchRequestTransfer $returnReasonSearchRequestTransfer): array
     {
-        return $this->salesReturnPageSearchClient->searchReturnReasons($returnReasonSearchRequestTransfer);
+        return $this->salesReturnSearchClient->searchReturnReasons($returnReasonSearchRequestTransfer);
     }
 }

@@ -9,7 +9,7 @@ namespace Spryker\Glue\SalesReturnsRestApi\Dependency\Client;
 
 use Generated\Shared\Transfer\ReturnReasonSearchRequestTransfer;
 
-interface SalesReturnsRestApiToSalesReturnPageSearchClientInterface
+interface SalesReturnsRestApiToSalesReturnSearchClientInterface
 {
     /**
      * @param \Generated\Shared\Transfer\ReturnReasonSearchRequestTransfer $returnReasonSearchRequestTransfer
