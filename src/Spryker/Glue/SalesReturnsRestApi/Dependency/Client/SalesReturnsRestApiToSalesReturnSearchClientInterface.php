@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ReturnReasonSearchRequestTransfer;
 
 interface SalesReturnsRestApiToSalesReturnSearchClientInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ReturnReasonSearchRequestTransfer $returnReasonSearchRequestTransfer
-     *
-     * @return array
-     */
     public function searchReturnReasons(ReturnReasonSearchRequestTransfer $returnReasonSearchRequestTransfer): array;
 }

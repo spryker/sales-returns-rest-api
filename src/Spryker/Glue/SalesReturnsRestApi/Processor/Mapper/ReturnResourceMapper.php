@@ -23,20 +23,11 @@ class ReturnResourceMapper implements ReturnResourceMapperInterface
      */
     protected $salesReturnsRestApiConfig;
 
-    /**
-     * @param \Spryker\Glue\SalesReturnsRestApi\SalesReturnsRestApiConfig $salesReturnsRestApiConfig
-     */
     public function __construct(SalesReturnsRestApiConfig $salesReturnsRestApiConfig)
     {
         $this->salesReturnsRestApiConfig = $salesReturnsRestApiConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MessageTransfer $messageTransfer
-     * @param \Generated\Shared\Transfer\RestErrorMessageTransfer $restErrorMessageTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestErrorMessageTransfer
-     */
     public function mapMessageTransferToRestErrorMessageTransfer(
         MessageTransfer $messageTransfer,
         RestErrorMessageTransfer $restErrorMessageTransfer
@@ -51,12 +42,6 @@ class ReturnResourceMapper implements ReturnResourceMapperInterface
         return $restErrorMessageTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnTransfer $returnTransfer
-     * @param \Generated\Shared\Transfer\RestReturnsAttributesTransfer $restReturnsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestReturnsAttributesTransfer
-     */
     public function mapReturnTransferToRestReturnsAttributesTransfer(
         ReturnTransfer $returnTransfer,
         RestReturnsAttributesTransfer $restReturnsAttributesTransfer
@@ -69,12 +54,6 @@ class ReturnResourceMapper implements ReturnResourceMapperInterface
             );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnItemTransfer $returnItemTransfer
-     * @param \Generated\Shared\Transfer\RestReturnItemsAttributesTransfer $restReturnItemsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestReturnItemsAttributesTransfer
-     */
     public function mapReturnItemTransferToRestReturnItemsAttributesTransfer(
         ReturnItemTransfer $returnItemTransfer,
         RestReturnItemsAttributesTransfer $restReturnItemsAttributesTransfer

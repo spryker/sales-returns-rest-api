@@ -13,13 +13,6 @@ use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface;
 
 interface RestReturnReasonResponseBuilderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ReturnReasonSearchRequestTransfer $returnReasonSearchRequestTransfer
-     * @param \Generated\Shared\Transfer\ReturnReasonSearchCollectionTransfer $returnReasonSearchCollectionTransfer
-     * @param string $localeName
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createReturnReasonListRestResponse(
         ReturnReasonSearchRequestTransfer $returnReasonSearchRequestTransfer,
         ReturnReasonSearchCollectionTransfer $returnReasonSearchCollectionTransfer,

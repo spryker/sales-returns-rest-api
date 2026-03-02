@@ -27,21 +27,11 @@ class SalesReturnsRestApiToSalesReturnClientBridge implements SalesReturnsRestAp
         $this->salesReturnClient = $salesReturnClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnCreateRequestTransfer $returnCreateRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ReturnResponseTransfer
-     */
     public function createReturn(ReturnCreateRequestTransfer $returnCreateRequestTransfer): ReturnResponseTransfer
     {
         return $this->salesReturnClient->createReturn($returnCreateRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnFilterTransfer $returnFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\ReturnCollectionTransfer
-     */
     public function getReturns(ReturnFilterTransfer $returnFilterTransfer): ReturnCollectionTransfer
     {
         return $this->salesReturnClient->getReturns($returnFilterTransfer);

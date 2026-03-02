@@ -45,11 +45,6 @@ class RestReturnResponseBuilder implements RestReturnResponseBuilderInterface
      */
     protected $salesReturnsRestApiConfig;
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     * @param \Spryker\Glue\SalesReturnsRestApi\Processor\Mapper\ReturnResourceMapperInterface $returnResourceMapper
-     * @param \Spryker\Glue\SalesReturnsRestApi\SalesReturnsRestApiConfig $salesReturnsRestApiConfig
-     */
     public function __construct(
         RestResourceBuilderInterface $restResourceBuilder,
         ReturnResourceMapperInterface $returnResourceMapper,
@@ -60,12 +55,6 @@ class RestReturnResponseBuilder implements RestReturnResponseBuilderInterface
         $this->salesReturnsRestApiConfig = $salesReturnsRestApiConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnFilterTransfer $returnFilterTransfer
-     * @param \Generated\Shared\Transfer\ReturnCollectionTransfer $returnCollectionTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createReturnListRestResponse(
         ReturnFilterTransfer $returnFilterTransfer,
         ReturnCollectionTransfer $returnCollectionTransfer
@@ -93,11 +82,6 @@ class RestReturnResponseBuilder implements RestReturnResponseBuilderInterface
         return $restResponse;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnTransfer $returnTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createReturnRestResponse(ReturnTransfer $returnTransfer): RestResponseInterface
     {
         $restReturnsAttributesTransfer = $this->returnResourceMapper
@@ -116,11 +100,6 @@ class RestReturnResponseBuilder implements RestReturnResponseBuilderInterface
         return $restResponse;
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createErrorRestResponse(string $message): RestResponseInterface
     {
         $restResponse = $this->restResourceBuilder->createRestResponse();
@@ -128,11 +107,6 @@ class RestReturnResponseBuilder implements RestReturnResponseBuilderInterface
         return $this->addRestResponseError($restResponse, $message);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnResponseTransfer $returnResponseTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createErrorRestResponseFromReturnResponse(
         ReturnResponseTransfer $returnResponseTransfer
     ): RestResponseInterface {
@@ -190,12 +164,6 @@ class RestReturnResponseBuilder implements RestReturnResponseBuilderInterface
         return $restResources;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnItemTransfer $returnItemTransfer
-     * @param string $returnReference
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface
-     */
     protected function createReturnItemRestResource(ReturnItemTransfer $returnItemTransfer, string $returnReference): RestResourceInterface
     {
         $restReturnItemsAttributesTransfer = $this->returnResourceMapper
@@ -215,12 +183,6 @@ class RestReturnResponseBuilder implements RestReturnResponseBuilderInterface
         return $returnItemResource;
     }
 
-    /**
-     * @param string $idReturn
-     * @param string $idReturnItem
-     *
-     * @return string
-     */
     protected function createSelfLinkForReturnItem(string $idReturn, string $idReturnItem): string
     {
         return sprintf(

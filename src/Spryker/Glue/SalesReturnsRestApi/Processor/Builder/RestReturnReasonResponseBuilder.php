@@ -26,10 +26,6 @@ class RestReturnReasonResponseBuilder implements RestReturnReasonResponseBuilder
      */
     protected $returnReasonResourceMapper;
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     * @param \Spryker\Glue\SalesReturnsRestApi\Processor\Mapper\ReturnReasonResourceMapperInterface $returnReasonResourceMapper
-     */
     public function __construct(
         RestResourceBuilderInterface $restResourceBuilder,
         ReturnReasonResourceMapperInterface $returnReasonResourceMapper
@@ -38,13 +34,6 @@ class RestReturnReasonResponseBuilder implements RestReturnReasonResponseBuilder
         $this->returnReasonResourceMapper = $returnReasonResourceMapper;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnReasonSearchRequestTransfer $returnReasonSearchRequestTransfer
-     * @param \Generated\Shared\Transfer\ReturnReasonSearchCollectionTransfer $returnReasonSearchCollectionTransfer
-     * @param string $localeName
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createReturnReasonListRestResponse(
         ReturnReasonSearchRequestTransfer $returnReasonSearchRequestTransfer,
         ReturnReasonSearchCollectionTransfer $returnReasonSearchCollectionTransfer,

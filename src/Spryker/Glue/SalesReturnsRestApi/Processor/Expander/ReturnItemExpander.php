@@ -18,9 +18,6 @@ class ReturnItemExpander implements ReturnItemExpanderInterface
      */
     protected $restReturnResponseBuilder;
 
-    /**
-     * @param \Spryker\Glue\SalesReturnsRestApi\Processor\Builder\RestReturnResponseBuilderInterface $restReturnResponseBuilder
-     */
     public function __construct(RestReturnResponseBuilderInterface $restReturnResponseBuilder)
     {
         $this->restReturnResponseBuilder = $restReturnResponseBuilder;

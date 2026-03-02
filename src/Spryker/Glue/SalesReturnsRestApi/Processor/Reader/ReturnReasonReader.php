@@ -46,10 +46,6 @@ class ReturnReasonReader implements ReturnReasonReaderInterface
      */
     protected $restReturnReasonResponseBuilder;
 
-    /**
-     * @param \Spryker\Glue\SalesReturnsRestApi\Dependency\Client\SalesReturnsRestApiToSalesReturnSearchClientInterface $salesReturnSearchClient
-     * @param \Spryker\Glue\SalesReturnsRestApi\Processor\Builder\RestReturnReasonResponseBuilderInterface $restReturnReasonResponseBuilder
-     */
     public function __construct(
         SalesReturnsRestApiToSalesReturnSearchClientInterface $salesReturnSearchClient,
         RestReturnReasonResponseBuilderInterface $restReturnReasonResponseBuilder
@@ -58,11 +54,6 @@ class ReturnReasonReader implements ReturnReasonReaderInterface
         $this->restReturnReasonResponseBuilder = $restReturnReasonResponseBuilder;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function getReturnReasons(RestRequestInterface $restRequest): RestResponseInterface
     {
         $returnReasonSearchRequestTransfer = $this->createReturnReasonSearchRequest($restRequest);
@@ -80,11 +71,6 @@ class ReturnReasonReader implements ReturnReasonReaderInterface
         );
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\ReturnReasonSearchRequestTransfer
-     */
     protected function createReturnReasonSearchRequest(RestRequestInterface $restRequest): ReturnReasonSearchRequestTransfer
     {
         $requestParameters = [];

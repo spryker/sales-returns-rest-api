@@ -16,34 +16,16 @@ use Generated\Shared\Transfer\ReturnTransfer;
 
 interface ReturnResourceMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MessageTransfer $messageTransfer
-     * @param \Generated\Shared\Transfer\RestErrorMessageTransfer $restErrorMessageTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestErrorMessageTransfer
-     */
     public function mapMessageTransferToRestErrorMessageTransfer(
         MessageTransfer $messageTransfer,
         RestErrorMessageTransfer $restErrorMessageTransfer
     ): RestErrorMessageTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnTransfer $returnTransfer
-     * @param \Generated\Shared\Transfer\RestReturnsAttributesTransfer $restReturnsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestReturnsAttributesTransfer
-     */
     public function mapReturnTransferToRestReturnsAttributesTransfer(
         ReturnTransfer $returnTransfer,
         RestReturnsAttributesTransfer $restReturnsAttributesTransfer
     ): RestReturnsAttributesTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnItemTransfer $returnItemTransfer
-     * @param \Generated\Shared\Transfer\RestReturnItemsAttributesTransfer $restReturnItemsAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestReturnItemsAttributesTransfer
-     */
     public function mapReturnItemTransferToRestReturnItemsAttributesTransfer(
         ReturnItemTransfer $returnItemTransfer,
         RestReturnItemsAttributesTransfer $restReturnItemsAttributesTransfer

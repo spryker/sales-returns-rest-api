@@ -24,11 +24,6 @@ class SalesReturnsRestApiToSalesReturnSearchClientBridge implements SalesReturns
         $this->salesReturnSearchClient = $salesReturnSearchClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnReasonSearchRequestTransfer $returnReasonSearchRequestTransfer
-     *
-     * @return array
-     */
     public function searchReturnReasons(ReturnReasonSearchRequestTransfer $returnReasonSearchRequestTransfer): array
     {
         return $this->salesReturnSearchClient->searchReturnReasons($returnReasonSearchRequestTransfer);

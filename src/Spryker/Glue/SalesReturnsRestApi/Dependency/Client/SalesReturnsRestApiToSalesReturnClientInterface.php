@@ -14,17 +14,7 @@ use Generated\Shared\Transfer\ReturnResponseTransfer;
 
 interface SalesReturnsRestApiToSalesReturnClientInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ReturnCreateRequestTransfer $returnCreateRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ReturnResponseTransfer
-     */
     public function createReturn(ReturnCreateRequestTransfer $returnCreateRequestTransfer): ReturnResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ReturnFilterTransfer $returnFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\ReturnCollectionTransfer
-     */
     public function getReturns(ReturnFilterTransfer $returnFilterTransfer): ReturnCollectionTransfer;
 }

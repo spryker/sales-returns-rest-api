@@ -27,10 +27,6 @@ class ReturnReader implements ReturnReaderInterface
      */
     protected $restReturnResponseBuilder;
 
-    /**
-     * @param \Spryker\Glue\SalesReturnsRestApi\Dependency\Client\SalesReturnsRestApiToSalesReturnClientInterface $salesReturnClient
-     * @param \Spryker\Glue\SalesReturnsRestApi\Processor\Builder\RestReturnResponseBuilderInterface $restReturnResponseBuilder
-     */
     public function __construct(
         SalesReturnsRestApiToSalesReturnClientInterface $salesReturnClient,
         RestReturnResponseBuilderInterface $restReturnResponseBuilder
@@ -39,11 +35,6 @@ class ReturnReader implements ReturnReaderInterface
         $this->restReturnResponseBuilder = $restReturnResponseBuilder;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function getReturns(RestRequestInterface $restRequest): RestResponseInterface
     {
         if ($restRequest->getResource()->getId()) {
@@ -53,11 +44,6 @@ class ReturnReader implements ReturnReaderInterface
         return $this->getReturnsAttributes($restRequest);
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     protected function getReturnsAttributes(RestRequestInterface $restRequest): RestResponseInterface
     {
         $returnFilterTransfer = $this->createReturnFilter($restRequest);
@@ -69,11 +55,6 @@ class ReturnReader implements ReturnReaderInterface
         );
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     protected function getReturnAttributes(RestRequestInterface $restRequest): RestResponseInterface
     {
         $returnFilterTransfer = $this->createReturnFilter($restRequest)
@@ -91,11 +72,6 @@ class ReturnReader implements ReturnReaderInterface
         return $this->restReturnResponseBuilder->createReturnRestResponse($returnTransfer);
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\ReturnFilterTransfer
-     */
     protected function createReturnFilter(RestRequestInterface $restRequest): ReturnFilterTransfer
     {
         $filterTransfer = new FilterTransfer();

@@ -27,11 +27,6 @@ class SalesReturnsRestApiDependencyProvider extends AbstractBundleDependencyProv
      */
     public const CLIENT_SALES_RETURN_SEARCH = 'CLIENT_SALES_RETURN_SEARCH';
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
@@ -42,11 +37,6 @@ class SalesReturnsRestApiDependencyProvider extends AbstractBundleDependencyProv
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addSalesReturnClient(Container $container): Container
     {
         $container->set(static::CLIENT_SALES_RETURN, function (Container $container) {
@@ -58,11 +48,6 @@ class SalesReturnsRestApiDependencyProvider extends AbstractBundleDependencyProv
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addSalesReturnSearchClient(Container $container): Container
     {
         $container->set(static::CLIENT_SALES_RETURN_SEARCH, function (Container $container) {

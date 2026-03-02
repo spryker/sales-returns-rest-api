@@ -30,10 +30,6 @@ class ReturnWriter implements ReturnWriterInterface
      */
     protected $restReturnResponseBuilder;
 
-    /**
-     * @param \Spryker\Glue\SalesReturnsRestApi\Dependency\Client\SalesReturnsRestApiToSalesReturnClientInterface $salesReturnClient
-     * @param \Spryker\Glue\SalesReturnsRestApi\Processor\Builder\RestReturnResponseBuilderInterface $restReturnResponseBuilder
-     */
     public function __construct(
         SalesReturnsRestApiToSalesReturnClientInterface $salesReturnClient,
         RestReturnResponseBuilderInterface $restReturnResponseBuilder
@@ -42,12 +38,6 @@ class ReturnWriter implements ReturnWriterInterface
         $this->restReturnResponseBuilder = $restReturnResponseBuilder;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     * @param \Generated\Shared\Transfer\RestReturnRequestAttributesTransfer $restReturnRequestAttributesTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createReturn(
         RestRequestInterface $restRequest,
         RestReturnRequestAttributesTransfer $restReturnRequestAttributesTransfer
@@ -63,12 +53,6 @@ class ReturnWriter implements ReturnWriterInterface
         return $this->restReturnResponseBuilder->createReturnRestResponse($returnResponseTransfer->getReturn());
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     * @param \Generated\Shared\Transfer\RestReturnRequestAttributesTransfer $restReturnRequestAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\ReturnCreateRequestTransfer
-     */
     protected function createReturnRequest(
         RestRequestInterface $restRequest,
         RestReturnRequestAttributesTransfer $restReturnRequestAttributesTransfer

@@ -32,9 +32,6 @@ use Spryker\Glue\SalesReturnsRestApi\Processor\Writer\ReturnWriterInterface;
  */
 class SalesReturnsRestApiFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Glue\SalesReturnsRestApi\Processor\Reader\ReturnReasonReaderInterface
-     */
     public function createReturnReasonReader(): ReturnReasonReaderInterface
     {
         return new ReturnReasonReader(
@@ -43,9 +40,6 @@ class SalesReturnsRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\SalesReturnsRestApi\Processor\Expander\ReturnItemExpanderInterface
-     */
     public function createReturnItemExpander(): ReturnItemExpanderInterface
     {
         return new ReturnItemExpander(
@@ -53,9 +47,6 @@ class SalesReturnsRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\SalesReturnsRestApi\Processor\Writer\ReturnWriterInterface
-     */
     public function createReturnWriter(): ReturnWriterInterface
     {
         return new ReturnWriter(
@@ -64,9 +55,6 @@ class SalesReturnsRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\SalesReturnsRestApi\Processor\Reader\ReturnReaderInterface
-     */
     public function createReturnReader(): ReturnReaderInterface
     {
         return new ReturnReader(
@@ -75,9 +63,6 @@ class SalesReturnsRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\SalesReturnsRestApi\Processor\Builder\RestReturnResponseBuilderInterface
-     */
     public function createRestReturnResponseBuilder(): RestReturnResponseBuilderInterface
     {
         return new RestReturnResponseBuilder(
@@ -87,9 +72,6 @@ class SalesReturnsRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\SalesReturnsRestApi\Processor\Builder\RestReturnReasonResponseBuilderInterface
-     */
     public function createRestReturnReasonResponseBuilder(): RestReturnReasonResponseBuilderInterface
     {
         return new RestReturnReasonResponseBuilder(
@@ -98,17 +80,11 @@ class SalesReturnsRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\SalesReturnsRestApi\Processor\Mapper\ReturnReasonResourceMapperInterface
-     */
     public function createReturnReasonResourceMapper(): ReturnReasonResourceMapperInterface
     {
         return new ReturnReasonResourceMapper();
     }
 
-    /**
-     * @return \Spryker\Glue\SalesReturnsRestApi\Processor\Mapper\ReturnResourceMapperInterface
-     */
     public function createReturnResourceMapper(): ReturnResourceMapperInterface
     {
         return new ReturnResourceMapper(
@@ -116,17 +92,11 @@ class SalesReturnsRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\SalesReturnsRestApi\Dependency\Client\SalesReturnsRestApiToSalesReturnClientInterface
-     */
     public function getSalesReturnClient(): SalesReturnsRestApiToSalesReturnClientInterface
     {
         return $this->getProvidedDependency(SalesReturnsRestApiDependencyProvider::CLIENT_SALES_RETURN);
     }
 
-    /**
-     * @return \Spryker\Glue\SalesReturnsRestApi\Dependency\Client\SalesReturnsRestApiToSalesReturnSearchClientInterface
-     */
     public function getSalesReturnSearchClient(): SalesReturnsRestApiToSalesReturnSearchClientInterface
     {
         return $this->getProvidedDependency(SalesReturnsRestApiDependencyProvider::CLIENT_SALES_RETURN_SEARCH);
