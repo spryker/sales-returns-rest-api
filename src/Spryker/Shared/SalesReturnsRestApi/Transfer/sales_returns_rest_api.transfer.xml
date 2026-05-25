@@ -74,6 +74,7 @@
     <transfer name="ReturnItem">
         <property name="orderItem" type="Item" description="An item within an order."/>
         <property name="uuid" type="string" description="A Universally Unique Identifier for an entity."/>
+        <property name="reason" type="string" description="The reason for a return or other action."/>
     </transfer>
 
     <transfer name="ReturnResponse">

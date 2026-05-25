@@ -1,0 +1,160 @@
+resource:
+    name: Returns
+    shortName: returns
+    description: 'Customer sales returns'
+
+    provider: Spryker\Glue\SalesReturnsRestApi\Api\Storefront\Provider\ReturnsStorefrontProvider
+    processor: Spryker\Glue\SalesReturnsRestApi\Api\Storefront\Processor\ReturnsStorefrontProcessor
+
+    paginationEnabled: true
+    paginationClientEnabled: true
+    paginationItemsPerPage: 10
+    paginationMaximumItemsPerPage: 100
+
+    operations:
+        - type: GetCollection
+          uriTemplate: /returns
+          security: "is_granted('ROLE_CUSTOMER')"
+          description: 'List the authenticated customer returns.'
+          openapiContext:
+              summary: 'List returns'
+              responses:
+                  200:
+                      description: 'Returns collection returned.'
+                  401:
+                      description: 'Missing or invalid access token.'
+
+        - type: Get
+          uriTemplate: '/returns/{returnReference}'
+          uriVariables:
+              returnReference:
+                  identifiers: [returnReference]
+          security: "is_granted('ROLE_CUSTOMER')"
+          description: 'Retrieve a single return by reference.'
+          openapiContext:
+              summary: 'Retrieve a return'
+              responses:
+                  200:
+                      description: 'Return returned.'
+                  401:
+                      description: 'Missing or invalid access token.'
+                  404:
+                      description: "Can't find return by the given return reference."
+
+        - type: Post
+          uriTemplate: /returns
+          security: "is_granted('ROLE_CUSTOMER')"
+          description: 'Create a return for one or more sales order items.'
+          openapiContext:
+              summary: 'Create a return'
+              responses:
+                  201:
+                      description: 'Return created.'
+                  401:
+                      description: 'Missing or invalid access token.'
+                  422:
+                      description: "Return can't be created or contains items from different merchants."
+
+    includes:
+        - relationshipName: merchants
+          targetResource: Merchants
+          uriTemplate: /merchants/{merchantReference}
+          uriVariableMappings:
+              merchantReference: merchantReference
+
+        - relationshipName: return-items
+          targetResource: ReturnItems
+          resolverClass: Spryker\Glue\SalesReturnsRestApi\Api\Storefront\Relationship\ReturnItemsByReturnRelationshipResolver
+
+    properties:
+        returnReference:
+            type: string
+            identifier: true
+            writable: false
+            readable: true
+            required: false
+            description: 'Unique return reference.'
+            openapiContext:
+                example: 'DE--R1'
+
+        store:
+            type: string
+            writable: true
+            readable: true
+            required: true
+            description: 'Store the return belongs to.'
+            openapiContext:
+                example: 'DE'
+
+        customerReference:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'Reference of the customer who created the return.'
+            openapiContext:
+                example: 'DE--123'
+
+        merchantReference:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'Reference of the merchant the return items belong to (if applicable).'
+            openapiContext:
+                example: 'MER000006'
+
+        returnTotals:
+            type: array
+            writable: false
+            readable: true
+            required: false
+            description: 'Aggregated totals for the return.'
+            openapiContext:
+                properties:
+                    refundTotal:
+                        type: integer
+                        example: 0
+                    remunerationTotal:
+                        type: integer
+                        example: 4250
+                example:
+                    refundTotal: 0
+                    remunerationTotal: 4250
+
+        returnItems:
+            type: array
+            writable: true
+            readable: false
+            required: true
+            description: 'List of sales order items to include in the return.'
+            openapiContext:
+                example:
+                    - salesOrderItemUuid: '5f7c4f8c-7c2a-5f3e-9a6b-2c3d4e5f6789'
+                      reason: 'Damaged'
+
+        pagination:
+            type: array
+            writable: false
+            readable: true
+            required: false
+            description: 'Pagination metadata for the collection. Populated only on the first item of a GET /returns response; consumed by PaginationLinksResponseSubscriber to emit JSON:API top-level pagination links (first/last/prev/next).'
+            openapiContext:
+                properties:
+                    numFound:
+                        type: integer
+                        example: 4
+                    currentPage:
+                        type: integer
+                        example: 1
+                    maxPage:
+                        type: integer
+                        example: 1
+                    currentItemsPerPage:
+                        type: integer
+                        example: 10
+                example:
+                    numFound: 4
+                    currentPage: 1
+                    maxPage: 1
+                    currentItemsPerPage: 10

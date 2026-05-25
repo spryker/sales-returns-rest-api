@@ -1,0 +1,6 @@
+post:
+    store:
+        - NotBlank: ~
+
+    returnItems:
+        - NotBlank: ~

@@ -1,0 +1,33 @@
+resource:
+    name: ReturnReasons
+    shortName: return-reasons
+    description: 'Available return reasons for returns submission'
+
+    provider: Spryker\Glue\SalesReturnsRestApi\Api\Storefront\Provider\ReturnReasonsStorefrontProvider
+
+    paginationEnabled: true
+    paginationClientEnabled: true
+    paginationItemsPerPage: 10
+    paginationMaximumItemsPerPage: 100
+
+    operations:
+        - type: GetCollection
+          uriTemplate: /return-reasons
+          normalizationContext:
+              gen_id: false
+          description: 'List the available return reasons for the current locale.'
+          openapiContext:
+              summary: 'List return reasons'
+              responses:
+                  200:
+                      description: 'Return reasons collection returned.'
+
+    properties:
+        reason:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'Translated return reason label.'
+            openapiContext:
+                example: 'Damaged'

@@ -1,0 +1,37 @@
+resource:
+    name: ReturnItems
+    shortName: return-items
+    description: 'Items belonging to a sales return; reachable only via ?include=return-items on /returns'
+
+    paginationEnabled: false
+
+    operations: []
+
+    properties:
+        uuid:
+            type: string
+            identifier: true
+            writable: false
+            readable: true
+            required: false
+            description: 'Unique identifier of the return item.'
+            openapiContext:
+                example: '5f7c4f8c-7c2a-5f3e-9a6b-2c3d4e5f6789'
+
+        reason:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'Return reason supplied for this item.'
+            openapiContext:
+                example: 'Damaged'
+
+        orderItemUuid:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'UUID of the originating sales order item.'
+            openapiContext:
+                example: '5f7c4f8c-7c2a-5f3e-9a6b-2c3d4e5f6789'
