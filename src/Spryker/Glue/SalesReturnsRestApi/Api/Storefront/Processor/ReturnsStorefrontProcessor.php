@@ -93,6 +93,7 @@ class ReturnsStorefrontProcessor extends AbstractStorefrontProcessor
                 'uuid' => $returnItemTransfer->getUuid(),
                 'reason' => $returnItemTransfer->getReason(),
                 'orderItemUuid' => $returnItemTransfer->getOrderItem()?->getUuid(),
+                'orderReference' => $returnItemTransfer->getOrderItem()?->getOrderReference(),
             ];
         }
 

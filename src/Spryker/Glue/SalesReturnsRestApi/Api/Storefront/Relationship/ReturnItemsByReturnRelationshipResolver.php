@@ -37,6 +37,7 @@ class ReturnItemsByReturnRelationshipResolver extends AbstractRelationshipResolv
                 $resource->uuid = $returnItem['uuid'] ?? null;
                 $resource->reason = $returnItem['reason'] ?? null;
                 $resource->orderItemUuid = $returnItem['orderItemUuid'] ?? null;
+                $resource->orderReference = $returnItem['orderReference'] ?? null;
 
                 $resources[] = $resource;
             }

@@ -7,6 +7,14 @@ resource:
 
     operations: []
 
+    includes:
+        - relationshipName: order-items
+          targetResource: OrderItems
+          uriTemplate: /orders/{orderReference}/order-items/{uuid}
+          uriVariableMappings:
+              orderReference: orderReference
+              orderItemUuid: uuid
+
     properties:
         uuid:
             type: string
@@ -35,3 +43,10 @@ resource:
             description: 'UUID of the originating sales order item.'
             openapiContext:
                 example: '5f7c4f8c-7c2a-5f3e-9a6b-2c3d4e5f6789'
+
+        orderReference:
+            type: string
+            writable: false
+            readable: false
+            required: false
+            description: 'Order reference of the originating sales order. Internal only — feeds the `order-items` relationship URI (/orders/{orderReference}/order-items/{uuid}), not part of the JSON:API response body.'

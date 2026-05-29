@@ -112,6 +112,7 @@ class ReturnsStorefrontProvider extends AbstractStorefrontProvider
                 'uuid' => $returnItemTransfer->getUuid(),
                 'reason' => $returnItemTransfer->getReason(),
                 'orderItemUuid' => $returnItemTransfer->getOrderItem()?->getUuid(),
+                'orderReference' => $returnItemTransfer->getOrderItem()?->getOrderReference(),
             ];
         }
 
