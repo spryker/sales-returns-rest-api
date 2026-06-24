@@ -18,46 +18,64 @@ use Symfony\Component\HttpFoundation\Response;
 class SalesReturnsRestApiConfig extends AbstractBundleConfig
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const RESOURCE_RETURNS = 'returns';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESOURCE_RETURN_ITEMS = 'return-items';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESOURCE_RETURN_REASONS = 'return-reasons';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_CODE_RETURN_CANT_BE_CREATED = '3601';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_CODE_CANT_FIND_RETURN = '3602';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_CODE_RETURN_CANT_BE_FROM_MULTIPLE_MERCHANTS = '3603';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_MESSAGE_RETURN_CANT_BE_CREATED = 'Return can\'t be created.';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_MESSAGE_CANT_FIND_RETURN = 'Can\'t find return by the given return reference.';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_MESSAGE_CANT_RETURN_FOR_MULTIPLE_MERCHANTS = 'Return contains items from different merchants.';
