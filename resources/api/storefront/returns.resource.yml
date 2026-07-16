@@ -105,22 +105,23 @@ resource:
                 example: 'MER000006'
 
         returnTotals:
-            type: array
+            type: object
+            objectName: ReturnTotals
             writable: false
             readable: true
             required: false
             description: 'Aggregated totals for the return.'
-            openapiContext:
-                properties:
-                    refundTotal:
-                        type: integer
+            properties:
+                refundTotal:
+                    type: integer
+                    description: 'Total refunded amount.'
+                    openapiContext:
                         example: 0
-                    remunerationTotal:
-                        type: integer
+                remunerationTotal:
+                    type: integer
+                    description: 'Total remuneration amount.'
+                    openapiContext:
                         example: 4250
-                example:
-                    refundTotal: 0
-                    remunerationTotal: 4250
 
         returnItems:
             type: array
@@ -134,27 +135,30 @@ resource:
                       reason: 'Damaged'
 
         pagination:
-            type: array
+            type: object
+            objectName: Pagination
             writable: false
             readable: true
             required: false
             description: 'Pagination metadata for the collection. Populated only on the first item of a GET /returns response; consumed by PaginationLinksResponseSubscriber to emit JSON:API top-level pagination links (first/last/prev/next).'
-            openapiContext:
-                properties:
-                    numFound:
-                        type: integer
+            properties:
+                numFound:
+                    type: integer
+                    description: 'Total number of items found.'
+                    openapiContext:
                         example: 4
-                    currentPage:
-                        type: integer
+                currentPage:
+                    type: integer
+                    description: 'Current page number.'
+                    openapiContext:
                         example: 1
-                    maxPage:
-                        type: integer
+                maxPage:
+                    type: integer
+                    description: 'Total number of pages.'
+                    openapiContext:
                         example: 1
-                    currentItemsPerPage:
-                        type: integer
+                currentItemsPerPage:
+                    type: integer
+                    description: 'Number of items per page.'
+                    openapiContext:
                         example: 10
-                example:
-                    numFound: 4
-                    currentPage: 1
-                    maxPage: 1
-                    currentItemsPerPage: 10

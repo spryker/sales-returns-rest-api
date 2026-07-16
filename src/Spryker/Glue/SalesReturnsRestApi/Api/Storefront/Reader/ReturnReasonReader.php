@@ -27,6 +27,8 @@ class ReturnReasonReader implements ReturnReasonReaderInterface
 
     /**
      * {@inheritDoc}
+     *
+     * @param array<string, mixed> $requestParameters
      */
     public function findReturnReasons(array $requestParameters): ReturnReasonSearchCollectionTransfer
     {

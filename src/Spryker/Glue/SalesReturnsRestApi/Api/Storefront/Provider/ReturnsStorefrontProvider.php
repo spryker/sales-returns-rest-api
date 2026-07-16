@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Spryker\Glue\SalesReturnsRestApi\Api\Storefront\Provider;
 
+use Generated\Api\Storefront\Returns\ReturnsPaginationStorefrontObject;
+use Generated\Api\Storefront\Returns\ReturnsReturnTotalsStorefrontObject;
 use Generated\Api\Storefront\ReturnsStorefrontResource;
 use Generated\Shared\Transfer\ReturnTransfer;
 use Spryker\ApiPlatform\State\Provider\AbstractStorefrontProvider;
@@ -76,7 +78,7 @@ class ReturnsStorefrontProvider extends AbstractStorefrontProvider
             $totalCount = $collectionTransfer->getPagination()?->getNbResults() ?? count($resources);
             // Consumed by Spryker\ApiPlatform\EventSubscriber\PaginationLinksResponseSubscriber
             // to emit JSON:API top-level pagination links (first/last/prev/next).
-            $resources[0]->pagination = $this->calculatePagination($offset, $limit, $totalCount);
+            $resources[0]->pagination = ReturnsPaginationStorefrontObject::fromArray($this->calculatePagination($offset, $limit, $totalCount));
         }
 
         return $resources;
@@ -91,7 +93,8 @@ class ReturnsStorefrontProvider extends AbstractStorefrontProvider
         $resource->customerReference = $this->getCustomerReference();
         $resource->store = $data['store'] ?? null;
         $resource->merchantReference = $data['merchantReference'] ?? null;
-        $resource->returnTotals = $returnTransfer->getReturnTotals()?->toArray(true, true) ?? [];
+        $returnTotalsTransfer = $returnTransfer->getReturnTotals();
+        $resource->returnTotals = $returnTotalsTransfer !== null ? ReturnsReturnTotalsStorefrontObject::fromArray($returnTotalsTransfer->toArray(true, true)) : null;
         $resource->returnItems = $this->extractReturnItems($returnTransfer);
 
         return $resource;

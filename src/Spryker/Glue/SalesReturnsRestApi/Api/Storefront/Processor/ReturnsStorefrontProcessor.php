@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Spryker\Glue\SalesReturnsRestApi\Api\Storefront\Processor;
 
 use ArrayObject;
+use Generated\Api\Storefront\Returns\ReturnsReturnTotalsStorefrontObject;
 use Generated\Api\Storefront\ReturnsStorefrontResource;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
@@ -75,7 +76,8 @@ class ReturnsStorefrontProcessor extends AbstractStorefrontProcessor
         $data->customerReference = $this->getCustomerReference();
         $data->store = $returnData['store'] ?? $data->store;
         $data->merchantReference = $returnData['merchantReference'] ?? null;
-        $data->returnTotals = $returnTransfer->getReturnTotals()?->toArray(true, true) ?? [];
+        $returnTotalsTransfer = $returnTransfer->getReturnTotals();
+        $data->returnTotals = $returnTotalsTransfer !== null ? ReturnsReturnTotalsStorefrontObject::fromArray($returnTotalsTransfer->toArray(true, true)) : null;
         $data->returnItems = $this->extractReturnItems($returnTransfer);
 
         return $data;
