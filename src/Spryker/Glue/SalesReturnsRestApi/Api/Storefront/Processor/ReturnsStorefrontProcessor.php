@@ -51,7 +51,7 @@ class ReturnsStorefrontProcessor extends AbstractStorefrontProcessor
     {
         $returnItemTransfers = [];
 
-        foreach ($data->returnItems ?? [] as $item) {
+        foreach ($data->returnItems as $item) {
             $salesOrderItemUuid = is_array($item) ? ($item['salesOrderItemUuid'] ?? null) : null;
             $reason = is_array($item) ? ($item['reason'] ?? null) : null;
 
