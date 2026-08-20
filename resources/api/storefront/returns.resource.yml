@@ -22,7 +22,9 @@ resource:
                   200:
                       description: 'Returns collection returned.'
                   401:
-                      description: 'Missing or invalid access token.'
+                      description: 'Invalid access token.'
+                  403:
+                      description: 'Missing access token.'
 
         - type: Get
           uriTemplate: '/returns/{returnReference}'
@@ -37,7 +39,9 @@ resource:
                   200:
                       description: 'Return returned.'
                   401:
-                      description: 'Missing or invalid access token.'
+                      description: 'Invalid access token.'
+                  403:
+                      description: 'Missing access token.'
                   404:
                       description: "Can't find return by the given return reference."
 
@@ -51,7 +55,9 @@ resource:
                   201:
                       description: 'Return created.'
                   401:
-                      description: 'Missing or invalid access token.'
+                      description: 'Invalid access token.'
+                  403:
+                      description: 'Missing access token.'
                   422:
                       description: "Return can't be created or contains items from different merchants."
 
