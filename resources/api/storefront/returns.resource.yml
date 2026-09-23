@@ -27,6 +27,9 @@ resource:
                       description: 'Missing access token.'
 
         - type: Get
+          extraProperties:
+              notFoundCode: '3602'
+              notFoundMessage: "Can't find return by the given return reference."
           uriTemplate: '/returns/{returnReference}'
           uriVariables:
               returnReference:
