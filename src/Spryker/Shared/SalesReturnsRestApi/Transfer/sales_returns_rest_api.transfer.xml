@@ -85,6 +85,7 @@
 
     <transfer name="Item">
         <property name="uuid" type="string" description="A Universally Unique Identifier for an entity."/>
+        <property name="orderReference" type="string"/>
     </transfer>
 
     <transfer name="ReturnCreateRequest">
