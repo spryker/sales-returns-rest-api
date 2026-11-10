@@ -7,9 +7,9 @@
 
 namespace Spryker\Shared\SalesReturnsRestApi;
 
-use Spryker\Shared\Kernel\AbstractBundleConfig;
+use Spryker\Shared\Kernel\AbstractSharedConfig;
 
-class SalesReturnsRestApiConfig extends AbstractBundleConfig
+class SalesReturnsRestApiConfig extends AbstractSharedConfig
 {
     /**
      * @api
